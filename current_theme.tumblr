@@ -303,7 +303,7 @@
 			<div class="postcontent text {TagsAsClasses}">
 				{block:Title}<h2>{Title}</h2>{/block:Title}
 				{Body}
-				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a></p>
+				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a> | <a href="{Permalink}#disqus_thread">Comments (View)</a></p>
 			</div>
 			{/block:Text}
 				
@@ -311,7 +311,7 @@
 			<div class="postcontent photo {TagsAsClasses}">
 				{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}
 				{block:Caption}<div class="descrip">{Caption}</div>{/block:Caption}
-				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a></p>
+				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a> | <a href="{Permalink}#disqus_thread">Comments (View)</a></p>
 			</div>
 			{/block:Photo}
 
@@ -319,7 +319,7 @@
 			<div class="postcontent quote {TagsAsClasses}">
 				<div class="{Length}">{Quote}</div>
 				{block:Source}<div class="descrip">{Source}</div>{/block:Source}
-				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a></p>
+				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a> | <a href="{Permalink}#disqus_thread">Comments (View)</a></p>
 			</div>
 			{/block:Quote}
 
@@ -327,7 +327,7 @@
 			<div class="postcontent link {TagsAsClasses}">
 				<div class="href"><a href="{URL}" {Target}>{Name}</a></div>
 				{block:Description}<div class="descrip">{Description}</div>{/block:Description}
-				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a></p>
+				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a> | <a href="{Permalink}#disqus_thread">Comments (View)</a></p>
 			</div>
 			{/block:Link}
 
@@ -337,7 +337,7 @@
 				<ul>
 					{block:Lines}<li class="{Alt}">{block:Label}<span class="label">{Label}</span> {/block:Label}{Line}</li>{/block:Lines}
 				</ul>
-				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a></p>
+				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a> | <a href="{Permalink}#disqus_thread">Comments (View)</a></p>
 			</div>
 			{/block:Chat}
 
@@ -345,7 +345,7 @@
 			<div class="postcontent audio {TagsAsClasses}">
 				{AudioPlayerGrey}
 				{block:Caption}<div class="descrip">{Caption}</div>{/block:Caption}
-				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a></p>
+				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a> | <a href="{Permalink}#disqus_thread">Comments (View)</a></p>
 			</div>
 			{/block:Audio}
 
@@ -353,12 +353,32 @@
 			<div class="postcontent video {TagsAsClasses}">
 				{Video-500}
 				{block:Caption}<div class="descrip">{Caption}</div>{/block:Caption}
-				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a></p>
+				<p class="perma"><a href="{Permalink}" title="permalink to this post">posted {TimeAgo}</a> | <a href="{Permalink}#disqus_thread">Comments (View)</a></p>
 			</div>
 			{/block:Video}
 	
 			</div> <!-- /post -->
 			{/block:Posts}
+
+      {block:Permalink}
+      <script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>
+      <div id="disqus_thread"></div><script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/drjtumblr/embed.js"></script>
+      <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+      {/block:Permalink}
+      <script type="text/javascript">
+      //<![CDATA[
+      (function() {
+          var links = document.getElementsByTagName('a');
+          var query = '?';
+          for(var i = 0; i < links.length; i++) {
+            if(links[i].href.indexOf('#disqus_thread') >= 0) {
+              query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+            }
+          }
+          document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/drjtumblr/get_num_replies.js' + query + '"></' + 'script>');
+        })();
+      //]]>
+      </script>
 			
 			{block:Pagination}
 			<p class="navigation">
