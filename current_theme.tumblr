@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<head>
+	
+	<!--
+		Designed by
+		
+			_|_|_|      _|_|    _|_|_|_|    _|_|    _|  _|_|  
+			_|    _|  _|_|_|_|    _|      _|_|_|_|  _|_|      
+			_|    _|  _|          _|      _|        _|        
+			_|_|_|      _|_|_|      _|_|    _|_|_|  _|        
+			_|                                                
+			_|                                                
+
+			            _|        _|                      _|  
+			_|      _|        _|_|_|    _|_|_|  _|_|_|        
+			_|      _|  _|  _|    _|  _|    _|  _|    _|  _|  
+			  _|  _|    _|  _|    _|  _|    _|  _|    _|  _|  
+			    _|      _|    _|_|_|    _|_|_|  _|    _|  _|
+		
+		Found at secretlab.tumblr.com.
+	-->
+	
+	<title>{Title}'s Tumblelog{block:SearchPage}, Search results for: {SearchQuery}{/block:SearchPage}{block:PostTitle}, {PostTitle}{/block:PostTitle}</title>
+	<!-- custom colors -->
+	<meta name="color:Nametag" content="#BB0000"/>
+	<meta name="color:NametagTitle" content="#FFFFFF"/>
+	<script type="text/javascript">
+	var heightOfAbout = 100;
+	</script>
+	<!-- yeah that's it -->
+	<style type="text/css">
+	body {
+		margin: 0 0 15px 0;
+		padding: 0;
+		font-size: 11px;
+		font-family: 'Lucida Grande' , Arial , sans-serif;
+		background: url('http://www.petervidani.com/tumblr/secretlab/background-gradient.png') #FFF repeat-x fixed;
+	}
+
+	a {
+		text-decoration: none;
+		color: #000;
+		border-bottom: 1px solid #BEBEBE;
+	}
+
+	a:active {
+		border-bottom: 1px solid {color:Nametag};
+	}
+	
+	.clear {
+		clear: both;
+	}
+
+	.container {
+		width: 520px;
+		height: 100%;
+		margin: 40px auto auto auto;
+	}
+	
+	.container .description {
+		color: {color:NametagTitle};
+	}
+
+	.nametag {
+		font-style: italic;
+		font-weight: bold;
+		color: {color:NametagTitle};
+		padding: 4px 10px 6px 10px;
+		background: url('http://www.petervidani.com/tumblr/secretlab/nametag-grad.png') {color:Nametag} bottom repeat-x;
+		position: absolute;
+		top: 0px;
+		cursor: pointer;
+	}
+
+	.pull {
+		width: 39px;
+		height: 22px;
+		position: relative;
+		bottom: 40px;
+		padding-left: 4px;
+		padding-right: 4px;
+		float: right;
+		background: url('http://www.petervidani.com/tumblr/secretlab/header-menuPull.png') no-repeat center;
+	}
+
+	.pull:hover {
+		cursor: pointer;
+	}
+
+	.date {
+		clear: both;
+		text-align: center;
+		font-size: 11px;
+		color: #474747;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin: 20px auto -14px auto;
+	}
+
+	.post {
+		width: 520px;
+		margin: 20px auto auto auto;
+	}
+
+	.post .content{
+		padding: 2px 9px;
+		background: #FFF;
+		border-left: 1px solid #BEBEBE;
+		border-right: 1px solid #BEBEBE;
+	}
+
+	.post .content .title {
+		font-weight: bold;
+		font-style: italic;
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.post .content p {
+		margin-bottom: 0;
+	}
+
+	.post .content .photo {
+		text-align: center;
+	}
+
+	.post .content .chat {
+		padding-bottom: 12px;
+	}
+
+	.post .content .chat .title {
+		margin-top: 5px;
+	}
+
+	.post .content .chat .line {
+		clear:both;
+		padding-top: 4px;
+	}
+
+	.post .content .chat .line:hover {
+		cursor: default;
+	}
+
+	.post .content .chat .line .name {
+		width: 70px;
+		float: left;
+		overflow: hidden;
+		font-weight: bold;
+		text-align: right;
+	}
+
+	.post .content .chat .line .arrow1 {
+		width: 8px;
+		height: 7px;
+		background: url('http://www.petervidani.com/tumblr/secretlab/post-chat-right-mask.png') #BEBEBE center no-repeat;
+		margin: 3px 8px 0 8px;
+		float: left;
+	}
+
+	.post .content .chat .line:hover .arrow1 {
+		background: url('http://www.petervidani.com/tumblr/secretlab/post-chat-right-mask.png') #4A4A4A center no-repeat;
+	}
+
+	.post .content .chat .line .arrow2 {
+		width: 8px;
+		height: 7px;
+		background: url('http://www.petervidani.com/tumblr/secretlab/post-chat-left-mask.png') #BEBEBE left no-repeat;
+		margin: 3px 8px 0 8px;
+		float: left;
+	}
+
+	.post .content .chat .line:hover .arrow2 {
+		background: url('http://www.petervidani.com/tumblr/secretlab/post-chat-left-mask.png') #4A4A4A center no-repeat;
+	}
+
+	.post .content .chat .line .words {
+		width: 406px;
+		color: #474747;
+		font-style: italic;
+		float: right;
+	}
+
+	.post .content .chat .line:hover .words {
+		color: #000;
+	}
+
+	.bottomChat {
+		background: url('http://www.petervidani.com/tumblr/secretlab/post-bottom.png') no-repeat;
+		height: 10px; 
+	}
+
+	.post .quote {
+		font-weight: bold;
+	}
+
+	.post .quote.short {
+		font-size: 32pt;
+		line-height: 43px;
+	}
+
+	.post .quote.medium {
+		font-size: 24pt;
+		line-height: 35px;
+	}
+
+	.post .quote.long {
+		font-size: 18pt;
+		line-height: 27px;
+	}
+
+	.post .link .theLink a {
+		font-size: 18pt;
+		border-bottom: 2px solid #BEBEBE;
+	}
+
+	.post .link .theLink a:active {
+		border-bottom: 2px solid {color:Nametag};
+	}
+
+	.post .audio-player embed {
+		border: 1px solid #BEBEBE;
+	}
+
+	.post .source {
+		text-align: right;
+		font-style: italic;
+		margin: 5px 2px 0 0;
+	}
+
+	.post .caption {
+		margin: 5px 0 0 2px;
+	}
+
+	blockquote {
+		color: #474747;
+	}
+
+	.permalink {
+		width: 60px;
+		height: 18px;
+		margin: -2px auto auto 450px;
+		color: #FFF;
+		padding: 2px 0 0 0;
+		text-align: center;
+		background: url('http://www.petervidani.com/tumblr/secretlab/post-permalink.png') no-repeat;
+	}
+
+	embed,object {
+		margin: auto auto 5px auto;
+	}
+
+	.post .top {
+		background: url('http://www.petervidani.com/tumblr/secretlab/post-top.png') no-repeat;
+		height: 8px;
+	}
+
+	.bottom {
+		background: url('http://www.petervidani.com/tumblr/secretlab/post-bottom.png') no-repeat;
+		height: 10px;
+		clear: both;
+	}
+	
+	.container .resultCount {
+		width: 471px;
+		font-size: 12px;
+		font-weight: bold;
+		text-align: center;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding: 5px 0 5px 47px;
+		background: #FFFFFF;
+		border: 1px solid #BEBEBE;
+	}
+
+	.container .footer {
+		height: 20px;
+		width: 520px;
+		text-align: center;
+		margin: 60px auto;
+	}
+
+	.container .footer .pages {
+		position: relative;
+		top: 5px;
+		font-size: 12px;
+		width: 240px;
+		margin: auto;
+	}
+
+	.container .footer a {
+		text-decoration: none;
+		color: #474747;
+		border: none;
+	}
+
+	.container .footer .credits {
+		color: #9B9B9B;
+		margin-top: 60px;
+		padding-bottom: 20px;
+		text-align: center;
+	}
+
+	.container .previous {
+		float: left;
+		padding: 5px 6px;
+		width: 45px;
+		background: #FFFFFF;
+		border: 1px solid #BEBEBE;
+	}
+
+	.container .previous:hover a {
+		color: #FFF;
+	}
+
+	.container .next {
+		float: right;
+		padding: 5px 6px;
+		width: 45px;
+		text-align: center;
+		background: #FFFFFF;
+		border: 1px solid #BEBEBE;
+	}
+
+	.container .previous:hover, .next:hover {
+		color: #000;
+		border: 1px solid #474747;
+	}
+
+	.container .next:hover a {
+		color: #FFF;
+	}
+
+	.about {
+		background: url('http://petervidani.com/tumblr/secretlab/about-grad.png') {color:Nametag};
+		height: 1px;
+		overflow: hidden;
+	}
+
+	.about .container {
+		margin-top: 15px;
+		color: #fff;
+	}
+
+	.about .container a {
+		color: #fff;
+		border-bottom: 1px solid #fff;
+	}
+
+	.about .container form {
+		padding: 15px 0 25px 0;
+	}
+
+	.about .container .search-query {
+		border: 1px solid #fff;
+		width: 430px;
+		outline: 0px;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		padding: 3px;
+		color: {color:Nametag};
+		float: left;
+	}
+
+	.about .container .search-button {
+		border: 1px solid #fff;
+		width: 70px;
+		background-color: transparent;
+		outline: 0px;
+		padding: 3px;
+		color: #fff;
+		float: right;
+		border-radius: 5px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+	}
+
+	{CustomCSS}
+	</style>
+	<script type="text/javascript" src="http://assets.phome.us/js/mootools-beta_eval.js"></script>
+	<script type="text/javascript">
+	var state = 0;
+
+	window.addEvent("domready", function(){
+		$("tumblr_controls").setStyle("top", 1);
+
+		$("pull").addEvent("click", function(event){
+			//event.stop();
+
+			if(state == 0){
+				$("about").tween("height", heightOfAbout + 1);
+				$("nametag").tween("margin-top", heightOfAbout + 1);
+				$("tumblr_controls").tween("top", heightOfAbout + 1);
+
+				state = 1;
+			} else {
+				$("about").tween("height", 1);
+				$("nametag").tween("margin-top", 0);
+				$("tumblr_controls").tween("top", 1);
+
+				state = 0;
+			}
+		});
+	});
+	</script>
+	<link rel="shortcut icon" href="{Favicon}">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}" />
+	<meta name="viewport" content="width=550" />
+</head>
+<body>
+	<div class="about" id="about">
+		<div class="container">
+			<div class="description">
+				{block:Description}{Description}{/block:Description}
+			</div>
+			<form action="/search" method="get">
+				<input type="text" class="search-query" name="q" value="{SearchQuery}" /> <input type="submit" class="search-button" value="Search"/>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div class="container" id="container">
+		<a href="/">
+			<div class="nametag" id="nametag">
+				{Title}
+			</div>
+		</a>
+
+		<div class="pull" id="pull"></div>
+
+		{block:SearchPage}
+		<script type="text/javascript">
+		window.addEvent("domready", function(){
+			$("pull").fireEvent("click");
+		});
+		</script>
+		<div id="search-results-count">
+			<div class="resultCount">
+				Found {SearchResultCount} results for "{SearchQuery}"
+			</div>
+		</div>
+		{/block:SearchPage}
+
+		{block:PermalinkPage}
+		<script type="text/javascript">
+		window.addEvent("domready", function(){
+			$("pull").fireEvent("click");
+		});
+		</script>
+		{/block:PermalinkPage}
+
+		{block:NoSearchResults}
+		<style type="text/css"> #search-results-count { display: none }</style>
+
+		<div class="post">
+			<div class="top"></div>
+			<div class="content">
+				<div class="title">No results found</div>
+				<p>No search results for "{SearchQuery}" found.</p>
+			</div>
+		</div>
+		<div class="bottom"></div>
+		{/block:NoSearchResults}
+
+		{block:SearchForm}
+		{/block:SearchForm}
+
+		{block:Posts}
+
+		{block:NewDayDate}
+		<div class="date">
+			{Month} {DayOfMonth}, {Year}
+		</div>
+		{/block:NewDayDate}
+
+		{block:Text}
+		<div class="post">
+			<div class="top"></div>
+			<div class="content">
+				{block:Title}
+				<div class="title">{Title}</div>
+				{/block:Title}
+				<p>{Body}</p>
+			</div>
+		</div>
+		<div class="bottom"></div>
+		<a href="{Permalink}">
+			<div class="permalink">{12Hour}:{Minutes} {AmPm}</div>
+		</a>
+		{/block:Text}
+
+		{block:Link}
+		<div class="post">
+			<div class="top"></div>
+			<div class="content">
+				<div class="link">
+					<div class="theLink"><a href="{URL}">{Name}</a></div>
+				</div>
+				{block:Description}
+				<div class="caption">{Description}</div>
+				{/block:Description}
+			</div>
+		</div>
+		<div class="bottom"></div>
+		<a href="{Permalink}">
+			<div class="permalink">{12Hour}:{Minutes} {AmPm}</div>
+		</a>
+		{/block:Link}
+
+		{block:Chat}
+		<div class="post">
+			<div class="top"></div>
+			<div class="content">
+				{block:Title}
+				<div class="title">{Title}</div>
+				{/block:Title}
+				<div class="chat">
+					{block:Lines}
+					<div class="line">
+						{block:Label}
+						<div class="name">{Label}</div>
+						{/block:Label}
+						<div class="arrow{UserNumber}"></div>
+						<div class="words">{Line}</div>
+					</div>
+					{/block:Lines}
+				</div>
+			</div>
+		</div>
+		<div class="bottomChat"></div>
+		<a href="{Permalink}">
+			<div class="permalink">{12Hour}:{Minutes} {AmPm}</div>
+		</a>
+		{/block:Chat}
+
+		{block:Photo}
+		<div class="post">
+			<div class="top"></div>
+			<div class="content">
+				<div class="photo">
+					{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}
+					{block:Caption}
+				</div>
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+			</div>
+		</div>
+		<div class="bottom"></div>
+		<a href="{Permalink}">
+			<div class="permalink">{12Hour}:{Minutes} {AmPm}</div>
+		</a>
+		{/block:Photo}
+
+		{block:Quote}
+		<div class="post">
+			<div class="top"></div>
+			<div class="content">
+				<div class="quote {Length}">
+					{Quote}
+				</div>
+				{block:Source}
+				<div class="source">{Source}</div>
+				{/block:Source}
+			</div>
+		</div>
+		<div class="bottom"></div>
+		<a href="{Permalink}">
+			<div class="permalink">{12Hour}:{Minutes} {AmPm}</div>
+		</a>
+		{/block:Quote}
+
+		{block:Audio}
+		<div class="post">
+			<div class="top"></div>
+			<div class="content">
+				<div class="audio-player">
+					{AudioPlayerWhite}
+				</div>
+				{block:Caption}
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+			</div>
+		</div>
+		<div class="bottom"></div>
+		<a href="{Permalink}">
+			<div class="permalink">{12Hour}:{Minutes} {AmPm}</div>
+		</a>
+		{/block:Audio}
+
+		{block:Video}
+		<div class="post">
+			<div class="top"></div>
+			<div class="content">
+				{Video-500}
+				{block:Caption}
+				<div class="caption">
+					{Caption}
+				</div>
+				{/block:Caption}
+			</div>
+		</div>
+		<div class="bottom"></div>
+		<a href="{Permalink}">
+			<div class="permalink">{12Hour}:{Minutes} {AmPm}</div>
+		</a>
+		{/block:Video}
+		{/block:Posts}
+
+		<div class="footer">
+			{block:PreviousPage}
+			<a href="{PreviousPage}">
+				<div class="previous">
+					Previous
+				</div>
+			</a>
+			{/block:PreviousPage}
+			{block:NextPage}
+			<a href="{NextPage}">
+				<div class="next">
+					Next
+				</div>
+			</a>
+			{/block:NextPage}
+			<div class="pages">
+				{CurrentPage} of {TotalPages}
+			</div>
+			<div class="credits">
+				<a href="http://secretlab.tumblr.com">Secret Lab</a> by <a href="http://www.petervidani.com">Peter Vidani</a>.<br>
+				Running on <a href="http://www.tumblr.com">Tumblr</a>.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
